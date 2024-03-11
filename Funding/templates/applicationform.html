@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Application Form
+{% endblock %}
+
+{% block content %}
+  <div class="container mt-4">
+    <h1>New bursary/scholarship form</h1>
+    <form method="POST" action="{{ url_for('application_form_page') }}" enctype="multipart/form-data">      
+      <div class="mb-3">
+        <label for="name" class="form-label">Bursary/Scholarship Name</label>
+        <input type="text" class="form-control" id="name" name="name" required>
+      </div>
+      
+
+      <div class="mb-3">
+        <label for="company" class="form-label">Company</label>
+        <input type="text" class="form-control" id="company" name="company" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <input type="text" class="form-control" id="description" name="description" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="enddate" class="form-label">Expiry</label>
+        <input type="date" class="form-control" id="enddate" name="enddate" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="link" class="form-label">Link</label>
+        <input type="text" class="form-control" id="link" name="link" required>
+      </div>
+      {{ form.hidden_tag() }}
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+{% endblock %}
